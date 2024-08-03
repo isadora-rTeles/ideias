@@ -1,0 +1,33 @@
+public class Aparelho {
+    private final SimpleStringProperty nome;
+    private final SimpleIntegerProperty quantidade;
+
+    public Aparelho(String nome, int quantidade) {
+        this.nome = new SimpleStringProperty(nome);
+        this.quantidade = new SimpleIntegerProperty(quantidade);
+    }
+
+    public String getNome() {
+        return nome.get();
+    }
+
+    public void setNome(String nome) {
+        this.nome.set(nome);
+    }
+
+    public int getQuantidade() {
+        return quantidade.get();
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade.set(quantidade);
+    }
+
+    public StringProperty nomeProperty() {
+        return nome;
+    }
+
+    public IntegerProperty quantidadeProperty() {
+        return quantidade;
+    }
+}
