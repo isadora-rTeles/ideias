@@ -1,0 +1,251 @@
+//1 tentativa 
+//erro: tabela, n to conseguindo colocar as coisas na tabela
+// erro: todos os aparelhos menos a tv, lampadas, e ar sao exclusivos (escolhe 1 ou outro) n sei arrunar
+
+
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
+
+public class AppController {
+
+    @FXML
+    private Tab TabAparelhos;
+
+    @FXML
+    private Tab TabEconomia;
+
+    @FXML
+    private TableView<?> Table;
+
+    @FXML
+    private TableColumn<?, ?> TableAparelhos;
+
+    @FXML
+    private TableColumn<?, ?> TableEconomia;
+
+    @FXML
+    private TableColumn<?, ?> TablePreço;
+
+    @FXML
+    private TableColumn<?, ?> TableUnidades;
+
+    @FXML
+    private ToggleGroup aparelho;
+
+    @FXML
+    private Button buttonAdicionar;
+
+    @FXML
+    private Button buttonCalcular;
+
+    @FXML
+    private Button buttonGarantia;
+
+    @FXML
+    private Button buttonLimpar;
+
+    @FXML
+    private Label label;
+
+    @FXML
+    private RadioButton radioButtonAr;
+
+    @FXML
+    private RadioButton radioButtonCameras;
+
+    @FXML
+    private RadioButton radioButtonCurtina;
+
+    @FXML
+    private RadioButton radioButtonIrrigacao;
+
+    @FXML
+    private RadioButton radioButtonAssistente;
+
+    @FXML
+    private RadioButton radioButtonLampadas;
+
+    @FXML
+    private RadioButton radioButtonSeguranca;
+
+    @FXML
+    private RadioButton radioButtonSom;
+
+    @FXML
+    private RadioButton radioButtonTV;
+
+    @FXML
+    private TextField textAr;
+
+    @FXML
+    private TextField textAssistente;
+
+    @FXML
+    private TextField textCameras;
+
+    @FXML
+    private TextField textCurtinas;
+
+    @FXML
+    private TextField textIrrigacao;
+
+    @FXML
+    private TextField textLampadas;
+
+    @FXML
+    private TextField textSeguranca;
+
+    @FXML
+    private TextField textSom;
+
+    @FXML
+    private TextField textTV;
+
+    @FXML
+    private void initialize() {
+        // Configura os eventos dos botões
+        buttonCalcular.setOnAction(this::botaoCalcularClicado);
+        buttonGarantia.setOnAction(event -> garantia());
+        buttonAdicionar.setOnAction(event -> adicionar());
+        buttonLimpar.setOnAction(event -> limpar());
+
+        // Configura as colunas da tabela
+        TableAparelhos.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        TablePreço.setCellValueFactory(new PropertyValueFactory<>("preco"));
+        TableUnidades.setCellValueFactory(new PropertyValueFactory<>("unidades"));
+        // Adicione configuração para outras colunas conforme necessário
+
+    }
+
+    private void garantia() {
+        // Implementação para o botão "Garantia"
+    }
+
+    @FXML
+    void botaoArSelecionados(ActionEvent event) {
+        textAr.setDisable(!radioButtonAr.isSelected());
+    }
+    @FXML
+    void botaoCurtinaSelecionados(ActionEvent event) {
+        textCurtinas.setDisable(!radioButtonCurtina.isSelected());
+    }
+    @FXML
+    void botaoLampadasSelecionados(ActionEvent event) {
+        textLampadas.setDisable(!radioButtonLampadas.isSelected());
+    }
+    @FXML
+    void botaoTvSelecionados(ActionEvent event) {
+        textTV.setDisable(!radioButtonTV.isSelected());
+    }
+        @FXML
+    void botaoCamerasSelecionados(ActionEvent event) {
+        textTV.setDisable(!radioButtonCameras.isSelected());
+    }
+        @FXML
+    void botaoIrrigacaoSelecionados(ActionEvent event) {
+        textTV.setDisable(!radioButtonIrrigacao.isSelected());
+    }
+        @FXML
+    void botaoSegurancaSelecionados(ActionEvent event) {
+        textTV.setDisable(!radioButtonSeguranca.isSelected());
+    }
+        @FXML
+    void botaoSomSelecionados(ActionEvent event) {
+        textTV.setDisable(!radioButtonSom.isSelected());
+    }
+        @FXML
+    void botaoAssistenteSelecionados(ActionEvent event) {
+        textTV.setDisable(!radioButtonAssistente.isSelected());
+    }
+    
+     @FXML
+    void botaoCalcularClicado(ActionEvent event) {
+        try{
+        int qtdLampadas = textLampadas.getText().isEmpty() ? 0 : Integer.parseInt(textLampadas.getText());
+        int qtdArCondicionados = textAr.getText().isEmpty() ? 0 : Integer.parseInt(textAr.getText());
+        int qtdCortinasAutomaticas = textCurtinas.getText().isEmpty() ? 0 : Integer.parseInt(textCurtinas.getText());
+        int qtdTVs = textTV.getText().isEmpty() ? 0 : Integer.parseInt(textTV.getText());
+        int qtdSom = textSom.getText().isEmpty() ? 0 : Integer.parseInt(textSom.getText());
+        int qtdSeguranca = textSeguranca.getText().isEmpty() ? 0 : Integer.parseInt(textSeguranca.getText());
+        int qtdIrrigacao = textIrrigacao.getText().isEmpty() ? 0 : Integer.parseInt(textIrrigacao.getText());
+        int qtdCameras = textCameras.getText().isEmpty() ? 0 : Integer.parseInt(textCameras.getText());
+        int qtdAssistente = textAssistente.getText().isEmpty() ? 0 : Integer.parseInt(textAssistente.getText());
+    }
+         catch (NumberFormatException e) {
+            // Trate a exceção caso a conversão de texto para número falhe
+            e.printStackTrace();
+        }}
+    private void limpar() {
+        // Implementação para o botão "Limpar"
+        textAr.clear();
+        textAssistente.clear();
+        textCameras.clear();
+        textCurtinas.clear();
+        textIrrigacao.clear();
+        textLampadas.clear();
+        textSeguranca.clear();
+        textSom.clear();
+        textTV.clear();
+        
+        // Limpar a tabela se necessário
+        Table.getItems().clear();
+    }
+
+    private void adicionar() {
+    if (radioButtonAr.isSelected()) {
+        int quantidade = parseIntOrZero(textAr.getText());
+        Table.getItems().add(new Aparelho("Ar Condicionado", quantidade));
+    }
+    if (radioButtonCameras.isSelected()) {
+        int quantidade = parseIntOrZero(textCameras.getText());
+        Table.getItems().add(new Aparelho("Câmeras", quantidade));
+    }
+    if (radioButtonCurtina.isSelected()) {
+        int quantidade = parseIntOrZero(textCurtinas.getText());
+        Table.getItems().add(new Aparelho("Cortinas", quantidade));
+    }
+    if (radioButtonIrrigacao.isSelected()) {
+        int quantidade = parseIntOrZero(textIrrigacao.getText());
+        Table.getItems().add(new Aparelho("Irrigação", quantidade));
+    }
+    if (radioButtonAssistente.isSelected()) {
+        int quantidade = parseIntOrZero(textAssistente.getText());
+        Table.getItems().add(new Aparelho("Assistente", quantidade));
+    }
+    if (radioButtonLampadas.isSelected()) {
+        int quantidade = parseIntOrZero(textLampadas.getText());
+        Table.getItems().add(new Aparelho("Lâmpadas", quantidade));
+    }
+    if (radioButtonSeguranca.isSelected()) {
+        int quantidade = parseIntOrZero(textSeguranca.getText());
+        Table.getItems().add(new Aparelho("Segurança", quantidade));
+    }
+    if (radioButtonSom.isSelected()) {
+        int quantidade = parseIntOrZero(textSom.getText());
+        Table.getItems().add(new Aparelho("Som", quantidade));
+    }
+    if (radioButtonTV.isSelected()) {
+        int quantidade = parseIntOrZero(textTV.getText());
+        Table.getItems().add(new Aparelho("TV", quantidade));
+    }
+}
+
+private int parseIntOrZero(String text) {
+    try {
+        return Integer.parseInt(text);
+    } catch (NumberFormatException e) {
+        return 0;
+    }
+}
+}
