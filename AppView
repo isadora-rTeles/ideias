@@ -1,0 +1,49 @@
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+import java.io.File;
+import java.net.URL;
+
+
+
+/** 
+ * isadora rodrigues teles
+ * controla as telas, o que o usuario ve
+ */
+public class AppView extends Application {
+
+    private FXMLLoader loader;
+    
+    @Override
+    public void start(Stage primaryStage) {
+        try {
+            // Carrega o arquivo FXML usando o ClassLoader para garantir que o caminho está correto.
+            loader = new FXMLLoader(getClass().getResource("/Poo.fxml"));
+            Pane pane = loader.load();
+            
+            // Define o título da janela, se desejar
+            primaryStage.setTitle("Minha Aplicação JavaFX");
+            
+            // Cria e define a cena
+            Scene scene = new Scene(pane);
+            primaryStage.setScene(scene);
+            
+            // Exibe a janela
+            primaryStage.show();
+        } catch (Exception e) {
+            // Trata exceções que possam ocorrer
+            e.printStackTrace();
+            System.err.println("Erro ao carregar a interface gráfica: " + e.getMessage());
+        }
+    }
+    
+    public void setController(AppController controller) {
+        // Define o controlador para o loader
+        loader.setController(controller);
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
