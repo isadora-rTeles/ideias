@@ -1,0 +1,13 @@
+// jeito sugerido par lidar com os radiobuttons
+
+        // Adiciona listeners aos RadioButtons
+        radioButtonAr.selectedProperty().addListener(this::onRadioSelected);
+        radioButtonCameras.selectedProperty().addListener(this::onRadioSelected);
+        radioButtonCurtina.selectedProperty().addListener(this::onRadioSelected);
+        radioButtonIrrigacao.selectedProperty().addListener(this::onRadioSelected);
+        radioButtonIrrigacao1.selectedProperty().addListener(this::onRadioSelected);
+        radioButtonLampadas.selectedProperty().addListener(this::onRadioSelected);
+        radioButtonSeguranca.selectedProperty().addListener(this::onRadioSelected);
+        radioButtonSom.selectedProperty().addListener(this::onRadioSelected);
+        radioButtonTV.selectedProperty().addListener(this::onRadioSelected);
+
