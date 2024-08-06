@@ -4,3 +4,20 @@ Integrado: Grupo 1
 ---
 
 # Projeto do Grupo 1 - Relatorio Individual
+
+## Introdução:
+
+Fui responsável pela organização e desenvolvimento do front-end e as escolhas do desing e aparência do projeto. Utilizei os
+programas BlueJ e o SceneBuilder para criar os ambientes. Na primeira entrega fui responsavel pela criação da view, que foi
+corrigida e melhorada pelo Pedro, nessa ultima etapa eu atualizei o arquivo fxml e comecei o controller para facilitar a visão 
+por causa dos nomes que eu escolhi.
+
+### FXML
+
+Na primeira aba escolhi deixar apenas os aparelhos, pois não caberia a tabela que eu queria fazer e os aparelhos no mesmo lugar.
+Escolhi os radionButons pois os achei bonito e é uma forma facil de escolher quais aparelhos o usuario deseja escolher e o 
+textField para o usuario poder colocar o numero de aparelhos que ele deseja automatizar.
+
+Na segunda aba escolhi fazer a tabela, usando de base as tabelas utilizadas na internet em sites de comparação de eletrodomesticos
+
+![tabela exemplo]()
